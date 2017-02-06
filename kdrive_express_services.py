@@ -57,10 +57,11 @@ def main():
     error_callback = ERROR_CALLBACK(on_error_callback)
     kdrive.kdrive_register_error_callback(error_callback, None)
     
+    kdrive.kdrive_logger(KDRIVE_LOGGER_INFORMATION, 'Start Program')
     # We create a Access Port descriptor. This descriptor is then used for
     # all calls to that specific access port.
     ap = open_access_port()
-
+"""
     # We check that we were able to allocate a new descriptor
     # This should always happen, unless a bad_alloc exception is internally thrown
     # which means the memory couldn't be allocated, or there are no usb ports available
@@ -115,9 +116,8 @@ def main():
     # releases the access port
     kdrive.kdrive_ap_release(ap)
  
-
+"""
 def open_access_port():
-    kdrive_ap_create()
     ap = kdrive.kdrive_ap_create()
     if (ap != KDRIVE_INVALID_DESCRIPTOR):
         
