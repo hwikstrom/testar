@@ -23,7 +23,7 @@ from ctypes import (
 
 # load the kdriveExpress dll (windows)
 # for linux replace with kdriveExpress.so
-kdrive = CDLL('kdriveExpress.dll')
+kdrive = CDLL('/home/pi/knx/testar/libkdriveExpress.so')
 
 # the error callback pointer to function type
 ERROR_CALLBACK = CFUNCTYPE(None, c_int, c_void_p)
