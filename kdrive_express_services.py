@@ -118,13 +118,14 @@ def main():
  
 """
 def open_access_port():
-    ap = kdrive.kdrive_ap_create()
+   """ ap = kdrive.kdrive_ap_create()
     if (ap != KDRIVE_INVALID_DESCRIPTOR):
         
         kdrive.kdrive_ap_open_serial_ft12(ap, "/dev/ttyAMA0")
         #if (kdrive.kdrive_ap_enum_usb(ap) == 0) or (kdrive.kdrive_ap_open_usb(ap, 0) != KDRIVE_ERROR_NONE):
         kdrive.kdrive_ap_release(ap)
         #ap = KDRIVE_INVALID_DESCRIPTOR
+        """
     return ap
 
 
