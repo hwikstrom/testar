@@ -109,6 +109,7 @@ def main():
     read_prog_mode(sp)
     
     """
+    kdrive.kdrive_logger(KDRIVE_LOGGER_INFORMATION, 'Close connections...')
     # Release the service port
     kdrive.kdrive_sp_release(sp)
     
@@ -117,6 +118,7 @@ def main():
         
     # releases the access port
     kdrive.kdrive_ap_release(ap)
+    kdrive.kdrive_logger(KDRIVE_LOGGER_INFORMATION, '... Closed!')
  
 
 def open_access_port():
