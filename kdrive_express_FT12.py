@@ -28,7 +28,7 @@ kdrive = CDLL('/home/pi/knx/testar/libkdriveExpress.so')
 kdrive_packet_trace = False
 
 # The KNX Group Address (destination address) we use to send with
-address = 0x201
+address = 0x2001
 
 # the error callback pointer to function type
 ERROR_CALLBACK = CFUNCTYPE(None, c_int, c_void_p)
@@ -80,7 +80,7 @@ def main():
         kdrive.kdrive_ap_packet_trace_connect(ap)
 
     # send a 1-Bit boolean GroupValueWrite telegram: on
-    buffer = (c_ubyte * 1)(1)
+    buffer = (c_ubyte * 1)(0)
     kdrive.kdrive_ap_group_write(ap, address, buffer, 1)
 
     # now we simply go into bus monitor mode, and display received telegrams
