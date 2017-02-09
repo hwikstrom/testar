@@ -28,7 +28,7 @@ kdrive = CDLL('/home/pi/knx/testar/libkdriveExpress.so')
 kdrive_packet_trace = False
 
 # The KNX Group Address (destination address) we use to send with
-address = 0x2001
+address = 0x02001
 
 # the error callback pointer to function type
 ERROR_CALLBACK = CFUNCTYPE(None, c_int, c_void_p)
