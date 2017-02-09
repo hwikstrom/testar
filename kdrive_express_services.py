@@ -40,11 +40,11 @@ MAX_IND_ADDR = 5
 
 # Set to 1 to use connection-oriented
 # Set to 0 for connection-less
-connection_oriented = 1
+connection_oriented = 0
 
 # The address of the device that we connect
 # to for the device services (Property Value Read etc)
-address = c_ushort(0x1165)
+address = c_ushort(0x0002)
 
 
 def main():
