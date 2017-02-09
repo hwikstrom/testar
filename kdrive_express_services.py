@@ -57,7 +57,7 @@ def main():
     error_callback = ERROR_CALLBACK(on_error_callback)
     kdrive.kdrive_register_error_callback(error_callback, None)
     
-    kdrive.kdrive_logger(KDRIVE_LOGGER_INFORMATION, 'Start Program' + str(address)
+    kdrive.kdrive_logger(KDRIVE_LOGGER_INFORMATION, 'Start Program' + str(address))
     # We create a Access Port descriptor. This descriptor is then used for
     # all calls to that specific access port.
     ap = open_access_port()
