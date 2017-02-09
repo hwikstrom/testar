@@ -87,10 +87,11 @@ def main():
     # connection-less (depending on the value of connection_oriented)
     kdrive.kdrive_sp_set_co(sp, connection_oriented)
 
-    """    
+       
     # read property value : serial number
     prop_value_read(sp)
     
+    """
     # write property value : programming mode
     prop_value_write(sp)
 
