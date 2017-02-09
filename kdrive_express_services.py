@@ -61,7 +61,7 @@ def main():
     # We create a Access Port descriptor. This descriptor is then used for
     # all calls to that specific access port.
     ap = open_access_port()
-"""
+
     # We check that we were able to allocate a new descriptor
     # This should always happen, unless a bad_alloc exception is internally thrown
     # which means the memory couldn't be allocated, or there are no usb ports available
@@ -89,6 +89,7 @@ def main():
         
     # read property value : serial number
     prop_value_read(sp)
+    """
     # write property value : programming mode
     prop_value_write(sp)
 
@@ -107,6 +108,7 @@ def main():
     # read the programming mode
     read_prog_mode(sp)
     
+    """
     # Release the service port
     kdrive.kdrive_sp_release(sp)
     
@@ -116,16 +118,15 @@ def main():
     # releases the access port
     kdrive.kdrive_ap_release(ap)
  
-"""
+
 def open_access_port():
-   """ ap = kdrive.kdrive_ap_create()
+    ap = kdrive.kdrive_ap_create()
+   
     if (ap != KDRIVE_INVALID_DESCRIPTOR):
         
-        kdrive.kdrive_ap_open_serial_ft12(ap, "/dev/ttyAMA0")
-        #if (kdrive.kdrive_ap_enum_usb(ap) == 0) or (kdrive.kdrive_ap_open_usb(ap, 0) != KDRIVE_ERROR_NONE):
-        kdrive.kdrive_ap_release(ap)
-        #ap = KDRIVE_INVALID_DESCRIPTOR
-        """
+        if (kdrive.kdrive_ap_open_serial_ft12(ap, "/dev/ttyAMA0") != KDRIVE_ERROR_NONE:
+            kdrive.kdrive_ap_release(ap)
+            ap = KDRIVE_INVALID_DESCRIPTOR
     return ap
 
 
