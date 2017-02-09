@@ -124,7 +124,7 @@ def open_access_port():
    
     if (ap != KDRIVE_INVALID_DESCRIPTOR):
         
-        if (kdrive.kdrive_ap_open_serial_ft12(ap, "/dev/ttyAMA0") != KDRIVE_ERROR_NONE:
+        if kdrive.kdrive_ap_open_serial_ft12(ap, "/dev/ttyAMA0") != KDRIVE_ERROR_NONE:
             kdrive.kdrive_ap_release(ap)
             ap = KDRIVE_INVALID_DESCRIPTOR
     return ap
