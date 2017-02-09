@@ -40,7 +40,7 @@ MAX_IND_ADDR = 5
 
 # Set to 1 to use connection-oriented
 # Set to 0 for connection-less
-connection_oriented = 0
+connection_oriented = 1
 
 # The address of the device that we connect
 # to for the device services (Property Value Read etc)
@@ -86,10 +86,11 @@ def main():
     # Set the device services to connection-oriented or
     # connection-less (depending on the value of connection_oriented)
     kdrive.kdrive_sp_set_co(sp, connection_oriented)
-        
+
+    """    
     # read property value : serial number
     prop_value_read(sp)
-    """
+    
     # write property value : programming mode
     prop_value_write(sp)
 
