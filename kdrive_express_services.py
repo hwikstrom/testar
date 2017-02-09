@@ -91,7 +91,7 @@ def main():
     # read property value : serial number
     prop_value_read(sp)
     
-    """
+    
     # write property value : programming mode
     prop_value_write(sp)
 
@@ -110,7 +110,7 @@ def main():
     # read the programming mode
     read_prog_mode(sp)
     
-    """
+    
     kdrive.kdrive_logger(KDRIVE_LOGGER_INFORMATION, 'Close connections...')
     # Release the service port
     kdrive.kdrive_sp_release(sp)
