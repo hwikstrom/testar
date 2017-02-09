@@ -43,6 +43,10 @@ TELEGRAM_CALLBACK = CFUNCTYPE(None, POINTER(c_ubyte), c_uint, c_void_p)
 KDRIVE_LOGGER_FATAL = 1
 KDRIVE_LOGGER_INFORMATION = 6
 
+# defines from kdrive (not available from the library)
+KDRIVE_INVALID_DESCRIPTOR = -1
+KDRIVE_ERROR_NONE = 0
+SERIAL_NUMBER_LENGTH = 6
 
 def main():
     # Configure the logging level and console logger
