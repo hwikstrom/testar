@@ -44,7 +44,7 @@ connection_oriented = 0
 
 # The address of the device that we connect
 # to for the device services (Property Value Read etc)
-address = c_ushort(0x0002)
+address = c_ushort(0x1102)
 
 
 def main():
@@ -57,7 +57,7 @@ def main():
     error_callback = ERROR_CALLBACK(on_error_callback)
     kdrive.kdrive_register_error_callback(error_callback, None)
     
-    kdrive.kdrive_logger(KDRIVE_LOGGER_INFORMATION, 'Start Program')
+    kdrive.kdrive_logger(KDRIVE_LOGGER_INFORMATION, 'Start Program' + address)
     # We create a Access Port descriptor. This descriptor is then used for
     # all calls to that specific access port.
     ap = open_access_port()
