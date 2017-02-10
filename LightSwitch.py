@@ -36,15 +36,19 @@ def main():
         kdrive.kdrive_logger(KDRIVE_LOGGER_FATAL, 'Unable to create access port. This is a terminal failure')
         while 1:
             pass
+    
+    int lightSwitch = 0
 
-    # send a 1-Bit boolean GroupValueWrite telegram: on
-    buffer = (c_ubyte * 1)(1)
-    kdrive.kdrive_ap_group_write(ap, address, buffer, 1)
-    kdrive.kdrive_logger(KDRIVE_LOGGER_INFORMATION, "Send Group {0}, Value{1} ".format(hex(address), buffer))
+    while (lightSwitch < 2):
+        
+        # send a 1-Bit boolean GroupValueWrite telegram: on
+        buffer = (c_ubyte * 1)(lightSwitch)
+        kdrive.kdrive_ap_group_write(ap, address, buffer, 1)
+        kdrive.kdrive_logger(KDRIVE_LOGGER_INFORMATION, "Send Group {0}, Value{1} ".format(hex(address), lightSwitch))
 
-    kdrive.kdrive_logger(KDRIVE_LOGGER_INFORMATION, "Press [Enter] to exit the application ...")
-    i = raw_input('')
-    print i
+        kdrive.kdrive_logger(KDRIVE_LOGGER_INFORMATION, "Press 0 to turn off light and 1 to turn on light")
+        lightSwitch = raw_input('')
+    
 
     # close and release the access port
     kdrive.kdrive_ap_close(ap)
