@@ -37,7 +37,7 @@ def main():
         while 1:
             pass
     
-    int lightSwitch = 0
+    lightSwitch = 0
 
     while (lightSwitch < 2):
         
