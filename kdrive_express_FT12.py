@@ -59,7 +59,7 @@ def main():
         kdrive.kdrive_ap_packet_trace_connect(ap)
 
     # send a 1-Bit boolean GroupValueWrite telegram: on
-    buffer = (c_ubyte * 1)(0)
+    buffer = (c_ubyte * 1)(1)
     kdrive.kdrive_ap_group_write(ap, address, buffer, 1)
 
     # now we simply go into bus monitor mode, and display received telegrams
