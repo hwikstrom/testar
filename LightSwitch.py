@@ -40,10 +40,11 @@ def main():
     # send a 1-Bit boolean GroupValueWrite telegram: on
     buffer = (c_ubyte * 1)(1)
     kdrive.kdrive_ap_group_write(ap, address, buffer, 1)
-    kdrive.kdrive_logger(KDRIVE_LOGGER_INFORMATION, "Send Group Write {0}".format(hex(address)))
+    kdrive.kdrive_logger(KDRIVE_LOGGER_INFORMATION, "Send Group {0}, Value{1} ".format(hex(address, buffer)))
 
     kdrive.kdrive_logger(KDRIVE_LOGGER_INFORMATION, "Press [Enter] to exit the application ...")
     i = raw_input('')
+    print i
 
     # close and release the access port
     kdrive.kdrive_ap_close(ap)
