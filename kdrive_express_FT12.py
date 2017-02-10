@@ -96,6 +96,8 @@ def on_error_callback(e, user_data):
 
 def on_event_callback(ap, e, user_data):
     print 'kdrive event {0}'.format(hex(e))
+    print 'User Data: : : '
+    print user_data
 
 
 def on_telegram_callback(telegram, telegram_len, user_data):
