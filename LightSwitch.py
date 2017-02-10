@@ -39,7 +39,7 @@ def main():
     
     lightSwitch = 0
 
-    while (lightSwitch = 1 or lightSwitch = 0):
+    while (lightSwitch == 1 or lightSwitch == 0):
         
         # send a 1-Bit boolean GroupValueWrite telegram: on
         buffer = (c_ubyte * 1)(lightSwitch)
