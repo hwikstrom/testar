@@ -40,7 +40,7 @@ def main():
     # send a 1-Bit boolean GroupValueWrite telegram: on
     buffer = (c_ubyte * 1)(1)
     kdrive.kdrive_ap_group_write(ap, address, buffer, 1)
-    kdrive.kdrive_logger(KDRIVE_LOGGER_INFORMATION, "Send Group Write {0}".format(address, str.value))
+    kdrive.kdrive_logger(KDRIVE_LOGGER_INFORMATION, "Send Group Write {0}".format(address))
 
     kdrive.kdrive_logger(KDRIVE_LOGGER_INFORMATION, "Press [Enter] to exit the application ...")
     i = raw_input('')
