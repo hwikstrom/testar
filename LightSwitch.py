@@ -48,6 +48,9 @@ def main():
 
         kdrive.kdrive_logger(KDRIVE_LOGGER_INFORMATION, "Press 0 to turn off light and 1 to turn on light")
         lightSwitch = raw_input('')
+        print lightSwitch
+    else:
+        print 'Statement not fullfilled: {0}'.format(lightSwitch)
     
 
     # close and release the access port
