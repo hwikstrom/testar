@@ -1,17 +1,5 @@
 # -*- coding: utf-8 -*-
 
-#
-# Copyright (c) 2002-2016 WEINZIERL ENGINEERING GmbH
-# All rights reserved.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT
-# SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY DAMAGES OR OTHER LIABILITY,
-# WHETHER IN CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-# WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE
-#
-
 from ctypes import (
     CDLL, CFUNCTYPE, POINTER,
     c_int, c_void_p,
@@ -20,8 +8,7 @@ from ctypes import (
 )
 
 
-# load the kdriveExpress dll (windows)
-# for linux replace with kdriveExpress.so
+# load the kdriveExpress (kdriveExpress.so)
 kdrive = CDLL('/home/pi/knx/testar/libkdriveExpress.so')
 
 # Enable to use the kdrive access packet trace
@@ -30,13 +17,9 @@ kdrive_packet_trace = False
 # The KNX Group Address (destination address) we use to send with
 address = 0x1001
 
-# the error callback pointer to function type
+# the error, event and telegram callback pointer to function type
 ERROR_CALLBACK = CFUNCTYPE(None, c_int, c_void_p)
-
-# the event callback pointer to function type
 EVENT_CALLBACK = CFUNCTYPE(None, c_int, c_uint, c_void_p)
-
-# the telegram callback pointer to function type
 TELEGRAM_CALLBACK = CFUNCTYPE(None, POINTER(c_ubyte), c_uint, c_void_p)
 
 # Logging levels (not available from the library)
@@ -62,10 +45,6 @@ def main():
     # all calls to that specific access port.
     ap = open_access_port()
 
-
-    # We check that we were able to allocate a new descriptor
-    # This should always happen, unless a bad_alloc exception is internally thrown
-    # which means the memory couldn't be allocated.
     if ap == -1:
         kdrive.kdrive_logger(KDRIVE_LOGGER_FATAL, 'Unable to create access port. This is a terminal failure')
         while 1:
@@ -92,11 +71,10 @@ def main():
     kdrive.kdrive_logger(KDRIVE_LOGGER_INFORMATION, "Press [Enter] to exit the application ...")
     i = raw_input('')
 
-    # close the access port
+    # close and release the access port
     kdrive.kdrive_ap_close(ap)
-
-    # releases the access port
     kdrive.kdrive_ap_release(ap)
+
 
 def open_access_port():
     ap = kdrive.kdrive_ap_create()
